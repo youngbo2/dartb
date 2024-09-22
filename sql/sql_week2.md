@@ -26,35 +26,38 @@
 
 # 문제풀이
 ## 1. [우리 플랫폼에 정착한 판매자](https://solvesql.com/problems/settled-sellers-1/)
-```
+ ![image](https://github.com/user-attachments/assets/b6fcfde5-6521-4e3b-bb23-0bbb2b7b9bee)
+ 
+```sql
 SELECT seller_id, count(DISTINCT order_id) AS orders
 FROM olist_order_items_dataset
 GROUP BY seller_id
 HAVING count(DISTINCT order_id) >= 100;
 ```
- ![image](https://github.com/user-attachments/assets/b6fcfde5-6521-4e3b-bb23-0bbb2b7b9bee)
  * 그룹바이를 하고 필터링을 할 때에는 WHERE 절이 아닌 HAVING 절을 사용한다.
  * conut를 할 때에는 잊지 말고 DISTINCT를 걸어주기 (상황에 따라)
  
 ## 2. [최고의 근무일을 찾아라](https://solvesql.com/problems/best-working-day/)
-```
+![image](https://github.com/user-attachments/assets/5b767d48-dfcd-44ce-aba6-ef96780c4da5)
+
+```sql
 SELECT day, ROUND(SUM(tip), 3) AS tip_daily
 FROM tips
 GROUP BY day
 ORDER BY SUM(tip) DESC
 LIMIT 1;
 ```
-![image](https://github.com/user-attachments/assets/5b767d48-dfcd-44ce-aba6-ef96780c4da5)
 * 가장 팁이 많았던 날만 골라서 출력해야 하는데, 가장 먼저 MAX 함수가 생각이 나서 써봤는데 오류가 났다. `MAX(SUM())` 처럼 집계함수를 이중으로 사용할 수 없다는 것.
 * 조금 더 쉽게 생각해서 내림차순으로 정렬하고 LIMIT 1을 걸어 해결했다.
 
 ## 3. [몇 분이서 오셨어요?](https://solvesql.com/problems/size-of-table/)
-```
+![image](https://github.com/user-attachments/assets/10c38666-de94-42f2-ae4b-13ba62e5730b)
+
+```sql
 SELECT *
 FROM tips
 WHERE size % 2 == 1;
 ```
-![image](https://github.com/user-attachments/assets/10c38666-de94-42f2-ae4b-13ba62e5730b)
 * 나눗셈에서 몫을 구하는 연산자 "/"
 * 나눗셈에서 나머지를 구하는 연산자 "%"
 
