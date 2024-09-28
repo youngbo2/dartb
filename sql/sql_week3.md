@@ -32,6 +32,7 @@ ORDER BY I.ITEM_ID DESC;
 
 ## 3. [조건에 맞는 개발자 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/276034)
 
+![image](https://github.com/user-attachments/assets/74836529-313c-4baa-ab5d-b9b6a1cbcfa7)
 
 ```sql
 SELECT ID, EMAIL, FIRST_NAME, LAST_NAME
