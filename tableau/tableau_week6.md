@@ -111,11 +111,11 @@
 어떤 부분에 가중을 두었는지, 어떤 사용자 편의성을 고려하였는지에 대한 설명이 필요합니다.
 
 ![image](https://github.com/user-attachments/assets/1806aee7-26b4-4f37-bbb7-c00c0fb9642f)
-
+> 국가/지역에 대한 맵 차트, 매출과 수익에 대한 막대 차트, 카테고리에 대한 분상형 차트로 구성하였다.
 ![image](https://github.com/user-attachments/assets/48011508-5f01-4aa3-b42b-ddd7610c9559)
-
+> 맵에서 국가를 선택하면 해당 국가에 대한 정보만 필터링된다.
 ![image](https://github.com/user-attachments/assets/5b97477b-edaa-4ce0-bf6b-38325d7821a9)
-
+> 막대 차트에서 하위 범주를 선택하면 해당 범주에 대한 정보만 필터링된다.
 
 
 
