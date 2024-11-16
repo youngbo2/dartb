@@ -16,6 +16,7 @@ ORDER BY ANIMAL_ID;
 같은 문제를, CASE WHEN 문법을 사용하여 해결해주세요
 
 **문제2. CASE WHEN으로 해결**
+![image](https://github.com/user-attachments/assets/901751f6-7e36-41ad-822b-1d5b702ee1fb)
 
 ```sql
 //CASE WHEN 문법을 익히고 사용하여 해결해주세요.
@@ -35,6 +36,8 @@ ORDER BY ANIMAL_ID;
 (https://school.programmers.co.kr/learn/courses/30/lessons/59409#qna)
 
 **문제 3. 문제를 풀어주세요 (힌트: IF, LIKE를 사용할 수 있습니다)**
+
+![image](https://github.com/user-attachments/assets/1c2002f1-2e21-4233-9852-49187a34e536)
 
 ```sql
 SELECT
