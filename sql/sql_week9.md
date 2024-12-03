@@ -98,38 +98,38 @@
       - 재구매 비율: 66.67%
    
   ## 정답
-    ```
-    UPDATE customers c
-SET
-    avg_order_value = (
-        SELECT AVG(od.quantity * od.unit_price)
-        FROM order_details od
-        JOIN orders o ON od.order_id = o.order_id
-        WHERE o.customer_id = c.customer_id
-    ),
-    total_spent = (
-        SELECT SUM(od.quantity * od.unit_price)
-        FROM order_details od
-        JOIN orders o ON od.order_id = o.order_id
-        WHERE o.customer_id = c.customer_id
-    ),
-    num_orders = (
-        SELECT COUNT(DISTINCT o.order_id)
-        FROM orders o
-        WHERE o.customer_id = c.customer_id
-    ),
-    repurchase_rate = (
-        SELECT
-            COUNT(DISTINCT CASE WHEN od.product_id IN (
-                SELECT product_id
-                FROM order_details
-                JOIN orders o ON order_details.order_id = o.order_id
-                WHERE o.customer_id = c.customer_id
-                GROUP BY order_details.product_id
-                HAVING COUNT(order_details.product_id) > 1
-            ) THEN od.product_id END) * 1.0 / COUNT(DISTINCT od.product_id)
-        FROM order_details od
-        JOIN orders o ON od.order_id = o.order_id
-        WHERE o.customer_id = c.customer_id
-    );
-    ```
+```sql
+      UPDATE customers c
+      SET
+      avg_order_value = (
+          SELECT AVG(od.quantity * od.unit_price)
+          FROM order_details od
+          JOIN orders o ON od.order_id = o.order_id
+          WHERE o.customer_id = c.customer_id
+      ),
+      total_spent = (
+          SELECT SUM(od.quantity * od.unit_price)
+          FROM order_details od
+          JOIN orders o ON od.order_id = o.order_id
+          WHERE o.customer_id = c.customer_id
+      ),
+      num_orders = (
+          SELECT COUNT(DISTINCT o.order_id)
+          FROM orders o
+          WHERE o.customer_id = c.customer_id
+      ),
+      repurchase_rate = (
+          SELECT
+              COUNT(DISTINCT CASE WHEN od.product_id IN (
+                  SELECT product_id
+                  FROM order_details
+                  JOIN orders o ON order_details.order_id = o.order_id
+                  WHERE o.customer_id = c.customer_id
+                  GROUP BY order_details.product_id
+                  HAVING COUNT(order_details.product_id) > 1
+              ) THEN od.product_id END) * 1.0 / COUNT(DISTINCT od.product_id)
+          FROM order_details od
+          JOIN orders o ON od.order_id = o.order_id
+          WHERE o.customer_id = c.customer_id
+      );
+```
